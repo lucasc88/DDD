@@ -16,6 +16,18 @@ public class Evento {
     private Endereco endereco;
     private List<TipoIngresso> tipoIngressos = new ArrayList<>();
 
+    public Evento(Categoria categoria, String descricao, LocalDateTime data, Endereco endereco) {
+        this.categoria = categoria;
+        this.descricao = descricao;
+        this.data = data;
+        this.endereco = endereco;
+        createUUID();
+    }
+
+    private void createUUID() {
+        this.uuid = UUID.randomUUID();
+    }
+
     public void incluiNovoTipoDeIngressoAoEvento(TipoIngresso tipoIngresso) {
         this.tipoIngressos.add(tipoIngresso);
     }
